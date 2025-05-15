@@ -1,3 +1,60 @@
+# ☕ Web3 "Buy Me a Coffee" DApp
+
+A full-stack decentralized application that allows users to support creators by "buying them a coffee" via a smart contract. Built with **Next.js**, **Tailwind CSS**, and **TypeScript**, and powered by **Ethereum-compatible smart contracts**.
+
+---
+
+## 📌 Features
+
+- 🔐 **Wallet Connect** (via `wagmi` and `viem`)
+- ☕ **Buy Coffee** – Send ETH to the contract
+- 💰 **Check Balance** – View how much coffee money has been received
+- 🏧 **Withdraw** – Owner can withdraw collected ETH
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer        | Technology                        |
+|--------------|-----------------------------------|
+| Frontend     | Next.js, TypeScript, Tailwind CSS |
+| Web3 Library | wagmi, viem                       |
+| Backend/API  | Next.js API Routes (optional)     |
+| Smart Contract | Solidity (EVM-compatible)       |
+| Dev Tools    | Hardhat, Ethers.js, MetaMask      |
+
+---
+
+## 🔗 Smart Contract Overview
+The core smart contract supports:
+
+buyCoffee(string message) — payable function to send ETH
+
+getBalance() — view contract balance
+
+withdraw() — onlyOwner can withdraw funds
+
+getSupporters() — view supporters list
+
+You can find the contract in the contracts/ directory. It’s deployed on the Sepolia testnet (TBD).
+
+
+## 📷 UI Preview
+Add a screenshot or short GIF of the app here once UI is ready.
+
+
+## 🤓 Developer Notes
+This project integrates modern Web3 practices with a polished frontend UI. Emphasis on:
+
+- Type safety with TypeScript
+
+- Clean component architecture
+
+- Smart contract interaction using wagmi/viem
+
+
+----
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
