@@ -1,6 +1,5 @@
 "use client"
 
-import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import { WagmiProvider } from "wagmi"
@@ -16,11 +15,6 @@ const geistMono = Geist_Mono({
 	variable: "--font-geist-mono",
 	subsets: ["latin"]
 })
-
-export const metadata: Metadata = {
-	title: "Buy Me Coffee",
-	description: "web3 fullstack website"
-}
 
 // Set up a React Query client.
 const queryClient = new QueryClient()
