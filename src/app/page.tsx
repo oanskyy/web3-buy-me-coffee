@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/Button"
 import { WalletConnectViem } from "@/features/WalletConnectViem"
 import Image from "next/image"
 
@@ -30,7 +31,10 @@ export default function Home() {
 				{/* <ConnectWithViem /> */}
 				{/* <ConnectWithWagmi /> */}
 				<WalletConnectViem />
-				
+				{/* <div className='rainbow-border-wrapper'>
+					<Button variant='rainbow'>🌈 Rainbow Button</Button>
+				</div> */}
+				<Button variant='rainbow'>🌈 Rainbow Button</Button>
 			</main>
 			<footer className='row-start-3 flex gap-[24px] flex-wrap items-center justify-center'>
 				<a

@@ -1,18 +1,20 @@
 "use client"
 
-import { Provider } from "ethers"
-import { createWalletClient, custom } from "viem"
+import { createWalletClient, custom} from "viem"
 import { Button } from "@/components/ui/Button"
 import { useState } from "react"
 import { formatAddress } from "@/lib/utils"
+// import { Provider } from "ethers/providers"
 
-type EthereumProvider = Provider & {
-	request: (...args: unknown[]) => Promise<unknown>
-}
+// type EthereumProvider = Provider & {
+// 	request: (...args: unknown[]) => Promise<unknown>
+// }
 
 declare global {
 	interface Window {
-		ethereum?: EthereumProvider
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		ethereum?: any
+		// ethereum?: EthereumProvider
 	}
 }
 
@@ -21,9 +23,6 @@ export const WalletConnectViem = () => {
 
 	const handleConnect = async () => {
 		console.log("Connect Wallet")
-		// Add your wallet connection logic here
-		// For example, you can use the connect function from wagmi
-		// connect()
 
 		if (typeof window.ethereum !== "undefined") {
 			console.log("🟢 MetaMask or EVM based wallet is installed!")
@@ -49,10 +48,12 @@ export const WalletConnectViem = () => {
 		<div className='space-y-2'>
 			{address ? (
 				<>
+					<Button onClick={() => setAddress(null)} variant='outlinedLight'>
+						Disconnect
+					</Button>
 					<p className='text-sm text-gray-600'>
 						Connected: {formatAddress(address)}
 					</p>
-					<Button onClick={() => setAddress(null)}>Disconnect</Button>
 				</>
 			) : (
 				<Button onClick={handleConnect}>Connect Wallet (Viem)</Button>
