@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils"
 import Image from "next/image"
+import React from "react"
 
 type ButtonProps = {
 	children: React.ReactNode
@@ -9,31 +10,42 @@ type ButtonProps = {
 	disabled?: boolean
 	imageSrc?: string
 	className?: string
+	variant?: "default" | "outlinedLight" // ✅ add more variants as needed
 }
 
 export const Button = ({
 	children,
 	onClick,
 	disabled,
-	imageSrc = "/vercel.svg",
-	className
+	imageSrc,
+	className,
+	variant = "default" // ✅ default style
 }: ButtonProps) => {
+	const baseStyles =
+		"rounded-full border border-solid transition-colors flex items-center justify-center font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto disabled:opacity-50"
+
+	const variants = {
+		default:
+			"border-transparent bg-foreground text-background hover:bg-[#383838] dark:hover:bg-[#ccc]",
+		outlinedLight:
+			"border-black/[.08] dark:border-white/[.145] hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent"
+	}
+
 	return (
 		<button
 			onClick={onClick}
 			disabled={disabled}
-			className={cn(
-				"rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto disabled:opacity-50",
-				className
-			)}
+			className={cn(baseStyles, variants[variant], className)}
 		>
-			<Image
-				className='dark:invert'
-				src={imageSrc}
-				alt='Vercel logomark'
-				width={20}
-				height={20}
-			/>
+			{imageSrc && (
+				<Image
+					className='dark:invert'
+					src={imageSrc}
+					alt='Icon'
+					width={20}
+					height={20}
+				/>
+			)}
 			{children}
 		</button>
 	)
