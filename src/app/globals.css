@@ -24,3 +24,36 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Button variant */
+.rainbow-border::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    270deg,
+    #ff00c8,
+    #ff8a00,
+    #40cfff,
+    #ff00c8
+  );
+  background-size: 600% 600%;
+  animation: animate-rainbow 6s ease infinite;
+}
+
+@keyframes animate-rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

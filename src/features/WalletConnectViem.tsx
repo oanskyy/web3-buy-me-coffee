@@ -1,15 +1,11 @@
 "use client"
 
-import { createWalletClient, custom} from "viem"
+import { createWalletClient, custom } from "viem"
 import { Button } from "@/components/ui/Button"
 import { useState } from "react"
 import { formatAddress } from "@/lib/utils"
-// import { Provider } from "ethers/providers"
 
-// type EthereumProvider = Provider & {
-// 	request: (...args: unknown[]) => Promise<unknown>
-// }
-
+const Globe = "/globe.svg"
 declare global {
 	interface Window {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -56,7 +52,9 @@ export const WalletConnectViem = () => {
 					</p>
 				</>
 			) : (
-				<Button onClick={handleConnect}>Connect Wallet (Viem)</Button>
+				<Button onClick={handleConnect} imageSrc={Globe}>
+					Connect Wallet (Viem)
+				</Button>
 			)}
 		</div>
 	)

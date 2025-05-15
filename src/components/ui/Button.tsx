@@ -10,7 +10,7 @@ type ButtonProps = {
 	disabled?: boolean
 	imageSrc?: string
 	className?: string
-	variant?: "default" | "outlinedLight" // ✅ add more variants as needed
+	variant?: "default" | "outlinedLight" | "rainbow" // ✅ add more variants as needed
 }
 
 export const Button = ({
@@ -28,22 +28,28 @@ export const Button = ({
 		default:
 			"border-transparent bg-foreground text-background hover:bg-[#383838] dark:hover:bg-[#ccc]",
 		outlinedLight:
-			"border-black/[.08] dark:border-white/[.145] hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent"
+			"border-black/[.08] dark:border-white/[.145] hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent",
+		rainbow: "bg-white text-black border-transparent relative z-10"
 	}
 
 	return (
 		<button
 			onClick={onClick}
 			disabled={disabled}
-			className={cn(baseStyles, variants[variant], className)}
+			className={cn(
+				baseStyles,
+				variants[variant],
+				variant === "rainbow" && "rainbow-border",
+				className
+			)}
 		>
 			{imageSrc && (
 				<Image
-					className='dark:invert'
+					className='dark:invert mr-1'
 					src={imageSrc}
 					alt='Icon'
-					width={20}
-					height={20}
+					width={18}
+					height={18}
 				/>
 			)}
 			{children}
