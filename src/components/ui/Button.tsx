@@ -1,6 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils"
+import { LucideIcon } from "lucide-react"
 import Image from "next/image"
 import React from "react"
 
@@ -8,7 +9,7 @@ type ButtonProps = {
 	children: React.ReactNode
 	onClick?: () => void
 	disabled?: boolean
-	imageSrc?: string
+	imageSrc?: string | LucideIcon
 	className?: string
 	variant?: "default" | "outlinedLight" | "rainbow" // ✅ add more variants as needed
 }
@@ -43,7 +44,7 @@ export const Button = ({
 				className
 			)}
 		>
-			{imageSrc && (
+			{typeof imageSrc === "string" && (
 				<Image
 					className='dark:invert mr-1'
 					src={imageSrc}
@@ -52,6 +53,7 @@ export const Button = ({
 					height={18}
 				/>
 			)}
+			{typeof imageSrc !== "string" && imageSrc && React.createElement(imageSrc, { className: "dark:invert mr-1", size: 18 })}
 			{children}
 		</button>
 	)

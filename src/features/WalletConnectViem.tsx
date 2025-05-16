@@ -4,8 +4,7 @@ import { createWalletClient, custom } from "viem"
 import { Button } from "@/components/ui/Button"
 import { useState } from "react"
 import { formatAddress } from "@/lib/utils"
-
-const Globe = "/globe.svg"
+import { Wallet, Unplug } from "lucide-react"
 declare global {
 	interface Window {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -44,15 +43,17 @@ export const WalletConnectViem = () => {
 		<div className='space-y-2'>
 			{address ? (
 				<>
-					<Button onClick={() => setAddress(null)} variant='outlinedLight'>
+					<Button
+						onClick={() => setAddress(null)}
+						variant='outlinedLight'
+						imageSrc={Unplug}
+					>
 						Disconnect
 					</Button>
-					<p className='text-sm text-gray-600'>
-						Connected: {formatAddress(address)}
-					</p>
+					<p>Connected: {formatAddress(address)}</p>
 				</>
 			) : (
-				<Button onClick={handleConnect} imageSrc={Globe}>
+				<Button onClick={handleConnect} imageSrc={Wallet}>
 					Connect Wallet (Viem)
 				</Button>
 			)}
