@@ -7,7 +7,9 @@ A full-stack decentralized application that allows users to support creators by 
 ## 📌 Features
 
 - 🔐 **Wallet Connect** (via `wagmi` and `viem`)
-- ☕ **Buy Coffee** – Send ETH to the contract
+- ☕ **Buy Coffee** – Send ETH to the contract, 
+  - call a function on the smart contract, 
+  - have a test blockchain to call
 - 💰 **Check Balance** – View how much coffee money has been received
 - 🏧 **Withdraw** – Owner can withdraw collected ETH
 

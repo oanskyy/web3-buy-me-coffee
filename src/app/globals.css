@@ -57,3 +57,50 @@ body {
     background-position: 0% 50%;
   }
 }
+
+
+.game7-glow-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 9999px;
+  padding: 2px;
+  background: transparent;
+}
+
+.game7-glow-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 9999px;
+  background: linear-gradient(to right, #ff00c8, #ff8a00, #40cfff, #ff00c8);
+  background-size: 200% 100%;
+  animation: move-bottom-glow 4s linear infinite;
+  z-index: 0;
+}
+
+@keyframes move-bottom-glow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.game7-glow-button {
+  position: relative;
+  z-index: 10;
+  background-color: white;
+  color: black;
+  font-weight: 500;
+  border-radius: 9999px;
+  padding: 0.625rem 1.5rem;
+  height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+

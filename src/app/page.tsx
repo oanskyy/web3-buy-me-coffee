@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/Button"
+import { BuyCoffee } from "@/features/BuyCoffee"
 import { WalletConnectViem } from "@/features/WalletConnectViem"
 import Image from "next/image"
 
@@ -31,8 +32,11 @@ export default function Home() {
 				{/* <ConnectWithViem /> */}
 				{/* <ConnectWithWagmi /> */}
 				<WalletConnectViem />
-				
+				<BuyCoffee />
+
 				<Button variant='rainbow'>🌈 Rainbow Button</Button>
+				<Button variant='outlinedLight'>🌈 Rainbow Button</Button>
+				<Button variant='default'>🌈 Rainbow Button</Button>
 			</main>
 			<footer className='row-start-3 flex gap-[24px] flex-wrap items-center justify-center'>
 				<a
