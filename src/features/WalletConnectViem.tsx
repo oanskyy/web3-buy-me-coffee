@@ -46,14 +46,14 @@ export const WalletConnectViem = () => {
 					<Button
 						onClick={() => setAddress(null)}
 						variant='outlinedLight'
-						imageSrc={Unplug}
+						icon={Unplug}
 					>
 						Disconnect
 					</Button>
 					<p>Connected: {formatAddress(address)}</p>
 				</>
 			) : (
-				<Button onClick={handleConnect} imageSrc={Wallet}>
+				<Button onClick={handleConnect} icon={Wallet}>
 					Connect Wallet (Viem)
 				</Button>
 			)}

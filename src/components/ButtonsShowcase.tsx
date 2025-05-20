@@ -13,10 +13,8 @@ export default function ButtonsShowcase() {
 				<Button variant='rainbow'>Rainbow</Button>
 			</div>
 
-			<div className='pt-10'>
-				<div className='game7-glow-wrapper'>
-					<button className='game7-glow-button'>Game7 Inspired</button>
-				</div>
+			<div className='game7-halo-wrapper'>
+				<button className='game7-halo-button'>Game7</button>
 			</div>
 		</div>
 	)
