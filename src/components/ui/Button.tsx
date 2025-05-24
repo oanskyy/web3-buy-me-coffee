@@ -14,16 +14,18 @@ type ButtonProps = {
 	className?: string
 	variant?: "default" | "outlinedLight" | "rainbow" | "game7"
 	size?: "sm" | "md" | "lg"
+	type?: "button" | "submit" | "reset"
 }
 
-export const Button = ({
+export const Button: React.FC<ButtonProps> = ({
 	children,
 	onClick,
 	disabled,
 	imageSrc,
 	className,
 	variant = "default", // ✅ default style
-	size = "md"
+	size = "md",
+	type = "button"
 }: ButtonProps) => {
 	const baseStyles =
 		"rounded-full border border-solid transition-colors flex items-center justify-center font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
@@ -53,6 +55,7 @@ export const Button = ({
 
 	return (
 		<button
+			type={type}
 			onClick={onClick}
 			disabled={disabled}
 			className={cn(

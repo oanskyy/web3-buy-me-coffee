@@ -22,13 +22,13 @@ export const WalletConnectViem = () => {
 		if (typeof window.ethereum !== "undefined") {
 			console.log("🟢 MetaMask or EVM based wallet is installed!")
 
-			const client = createWalletClient({
+			const walletClient = createWalletClient({
 				transport: custom(window.ethereum!)
 			})
 
 			// const address = await client.getAddresses()
 			// console.log("Connected getaddress:", address)
-			const addresses = await client.requestAddresses()
+			const addresses = await walletClient.requestAddresses()
 			setAddress(addresses[0])
 			console.log("✅ Connected address:", addresses)
 			// getAddresses() gets the currently connected addresses without prompting the user
